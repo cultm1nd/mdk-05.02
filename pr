@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body>
+    <h1>zadanie1</h1>
+    <input type="text" onfocusout="fn1()" id="in1">
+    <p id="otvet1"></p>
+
+    <h1>zadanie2</h1>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <input type="text" id="c">
+    <p id="otvet2"></p>
+    <button id="btn">go</button>
+
+    <h1>zadanie3</h1>
+    <input type="text" onfocusout="fn3()" id="in3">
+    <p id="otvet3"></p>
+
+    <h1>zadanie4</h1>
+    <input type="text" onfocusout="fn4()" id="in4">
+    <p id="otvet4"></p>
+
+    <h1>zadanie5</h1>
+    <input type="text" id="in5" onfocusout="fn5()" placeholder="vvedite fio">
+    <input type="text" id="f">
+    <input type="text" id="i">
+    <input type="text" id="o">
+
+    <h1>zadanie6</h1>
+    <input type="text" id="in6" onfocusout="fn6()">
+
+    <h1>zadanie7</h1>
+    <input type="text" onfocusout="fn7()" id="in7">
+    <p id="otvet7"></p>
+
+    <h1>zadanie8</h1>
+    <input type="text" onfocusout="fn8()" id="in8">    
+
+    <h1>zadanie9</h1>
+    <input type="text" id="in9">
+    <p id="otvet9"></p>
+    <button onclick="fn9()">go</button>
+
+    <h1>zadanie10</h1>
+    <input type="text" onfocusout="fn10()" id="in10"> 
+    <p id="otvet10"></p>
+
+    <script src="js.js"></script>
+</body>
+</html>
+
+// zadanie 1
+function fn1(){
+    document.getElementById('otvet1').innerHTML += document.getElementById('in1').value;
+}
+
+// zadanie 2
+let btn = document.getElementById('btn');
+btn.onclick = fn2;
+function fn2(){
+    let a =+ document.getElementById('a').value;
+    let b =+ document.getElementById('b').value;
+    let c =+ document.getElementById('c').value;
+    document.getElementById('otvet2').innerHTML = a + b + c;
+}
+
+// zadanie 3
+function fn3(){
+    let in3 = document.getElementById('in3').value;
+    let array = in3.split('').map(x=>+x);
+    let sum =+ 0;
+
+    for(i = 0; i < array.length; i++){
+        sum += array[i];        
+    }
+    document.getElementById('otvet3').innerHTML = sum;
+}
+
+// zadanie 4
+function fn4(){
+    let in4 = document.getElementById('in4').value;
+    let array = in4.split(',').map(x=>+x);
+    let sum =+ 0;
+
+    for(i = 0; i < array.length; i++){
+        sum += array[i];        
+    }
+
+    document.getElementById('otvet4').innerHTML = sum / array.length;
+}
+
+// zadanie 5
+function fn5(){
+    let in5 = document.getElementById('in5').value;
+    let array = in5.split(' ');
+
+    document.querySelector('#f').value = array[0];
+    document.querySelector('#i').value = array[1];
+    document.querySelector('#o').value = array[2];
+}
+
+// zadanie 6
+function fn6(){
+    let in6 = document.getElementById('in6').value;
+    let otvet = '';
+
+    for(i = 0; i < in6.length; i++){
+        if(in6[i - 1] == ' ' || i == 0) otvet += in6[i].toUpperCase();
+        else otvet += in6[i];
+    }
+
+    document.querySelector('#in6').value = otvet;
+}
+
+// zadanie 7
+function fn7(){
+    let in7 = document.getElementById('in7').value;
+    let array = in7.split(' ');
+
+    document.getElementById('otvet7').innerHTML = array.length;
+}
+
+// zadanie 8
+function fn8(){
+    let in8 = document.getElementById('in8').value;
+    let array = in8.split('.');
+
+
+    document.getElementById('in8').value = array.reverse().join('-');
+}
+
+// zadanie 9
+function fn9(){
+    let in9 = document.getElementById('in9').value;
+    let array = in9.split('');
+    let array2 = in9.split('').reverse();
+
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] != array2[i]) document.getElementById('otvet9').innerHTML = 'no';
+      else document.getElementById('otvet9').innerHTML = 'yes';
+      
+    }
+}
+
+// zadanie 10
+function fn10(){
+    let in10 = document.getElementById('in10').value;
+    let array = in10.split('');
+    let f =+ 0;
+
+    for(i = 0; i < in10.length; i++){
+        if(array[i] == '3') f++;
+    }
+
+    if(f > 0) document.getElementById('otvet10').innerHTML = 'yes';
+    else document.getElementById('otvet10').innerHTML = 'no';
+}
