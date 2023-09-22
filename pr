@@ -2,162 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>zadanie1</h1>
-    <input type="text" onfocusout="fn1()" id="in1">
-    <p id="otvet1"></p>
+    <div class="z">
+    <h3>1	Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.</h3>
+    <input id="first" type="text">
+    <p id="firstP">Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.</p>
+    </div>
+    
+    <div class="z">
+        <h3>2	Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац.</h3>
+        <input id="second1" type="text">
+        <input id="second2" type="text">
+        <p id="secondP">Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац </p>
+        <input type="button" id="secondB" value="ok">
+    </div>
 
-    <h1>zadanie2</h1>
-    <input type="text" id="a">
-    <input type="text" id="b">
-    <input type="text" id="c">
-    <p id="otvet2"></p>
-    <button id="btn">go</button>
+    <div class="z">
+        <h3>3	Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.</h3>
+      <p> Введите число <input id="third" type="text"></p> 
+        <p id="thirdRes"></p>
+    </div>
 
-    <h1>zadanie3</h1>
-    <input type="text" onfocusout="fn3()" id="in3">
-    <p id="otvet3"></p>
+    <div class="z">
+        <h3>4	Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество).</h3>
+        <p> Введите числа через запятую<input id="fourth" type="text"></p>
+        <p id="fourthRes"></p>
+    </div>
 
-    <h1>zadanie4</h1>
-    <input type="text" onfocusout="fn4()" id="in4">
-    <p id="otvet4"></p>
+    <div class="z">
+        <h3>5	Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в остальные 3 инпута.</h3>
+        <p> Введите ФИО<input id="fiveth" type="text"></p><br>
+        <input id="fiveth1" type="text"><br>
+        <input id="fiveth2" type="text"><br>
+        <input id="fiveth3" type="text">
+    </div>
 
-    <h1>zadanie5</h1>
-    <input type="text" id="in5" onfocusout="fn5()" placeholder="vvedite fio">
-    <input type="text" id="f">
-    <input type="text" id="i">
-    <input type="text" id="o">
+    <div class="z">
+        <h3>6	Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в этом же инпуте).</h3>
+       <p>Введите ФИО<input id="sixth" type="text"></p> 
+    </div>
 
-    <h1>zadanie6</h1>
-    <input type="text" id="in6" onfocusout="fn6()">
+    <div class="z">
+        <h3>7	Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.</h3>
+        <p>Введите текст<input id="seventh" type="text"></p>
+        <p id="seventhP"></p>
+    </div>
 
-    <h1>zadanie7</h1>
-    <input type="text" onfocusout="fn7()" id="in7">
-    <p id="otvet7"></p>
+    <div class="z">
+        <h3>8	Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.</h3>
+        <input id="eight" type="text">
+    </div>
+    <script>
+        //1
+        let fIn = document.querySelector("#first");
+        let firstP = document.querySelector("#firstP");
+        fIn.addEventListener("blur", function () {
+        firstP.textContent += fIn.value;
+        });
 
-    <h1>zadanie8</h1>
-    <input type="text" onfocusout="fn8()" id="in8">    
+        //2
+        let secondInOne = document.querySelector("#second1");
+        let secondInTwo = document.querySelector("#second2");
+        let secondB = document.querySelector("#secondB");
+        let secondP = document.querySelector("#secondP");
+        secondB.addEventListener("click", function () {
+        secondP.textContent +=
+        Number(secondInOne.value) + Number(secondInTwo.value);
+        });
 
-    <h1>zadanie9</h1>
-    <input type="text" id="in9">
-    <p id="otvet9"></p>
-    <button onclick="fn9()">go</button>
+        //3
+        let thirdIn=document.querySelector("#third");
+        let thirdP = document.querySelector("#thirdRes");
+        thirdIn.addEventListener("blur", function () {
+            let sum=0;
+            let n=thirdIn.value;
+            for (let i = 0; i < n.length; i++) {
+          sum += parseInt(n.charAt(i));
+        }
+        thirdP.textContent = `Сумма = ${sum}`;
+        });
+      
+        //4
+        let fourthIn=document.querySelector("#fourth");
+        let  fourthP = document.querySelector("#fourthRes");
+        let sumF = 0;
+        let srd = 0;
+        fourthIn.addEventListener("blur", function () {
+        let arr = fourthIn.value.split(",");
+        for (let i = 0; i < arr.length; i++) {
+          sumF += parseInt(arr[i]);
+        }
 
-    <h1>zadanie10</h1>
-    <input type="text" onfocusout="fn10()" id="in10"> 
-    <p id="otvet10"></p>
+        fourthP.textContent = `${(sumF / arr.length).toFixed(2)} `;
+      });
 
-    <script src="js.js"></script>
+      //5
+      let fivethInOne=document.querySelector("#fiveth");
+      let fivethInTw=document.querySelector("#fiveth1");
+      let fivethInTh=document.querySelector("#fiveth2");
+      let fivethInFo=document.querySelector("#fiveth3");
+      fivethInOne.addEventListener("blur", function () {
+        let parts = fivethInOne.value.split(" ");
+
+        if (parts.length >= 3) {
+            fivethInTw.value = parts[0];
+            fivethInTh.value = parts[1];
+            fivethInFo.value = parts[2];
+        } else {
+            fivethInTw.value = "";
+          fivethInTh.value = "";
+          fivethInFo.value = "";
+          alert("вы ошиблись");
+        }
+      });
+
+      //6
+      let sixthIn = document.getElementById("sixth");
+
+      sixthIn.addEventListener("blur", function () {
+        let fullName = sixthIn.value;
+
+        let words = fullName.split(" ");
+
+        for (let i = 0; i < words.length; i++) {
+          words[i] =
+            words[i][0].toUpperCase() + words[i].slice(1).toLowerCase();
+        }
+
+        sixthIn.value = words.join(" ");
+      });
+
+      //7
+      let seventhIn = document.querySelector("#seventh");
+      let seventhP = document.querySelector("#seventhP");
+
+      seventhIn.addEventListener("blur", function () {
+        let inputText = seventhIn.value.split(" ");
+        seventhP.textContent = `${inputText.length} `;
+      });
+
+      //8
+      let eightIn = document.querySelector("#eight");
+    </script>
 </body>
 </html>
-
-// zadanie 1
-function fn1(){
-    document.getElementById('otvet1').innerHTML += document.getElementById('in1').value;
-}
-
-// zadanie 2
-let btn = document.getElementById('btn');
-btn.onclick = fn2;
-function fn2(){
-    let a =+ document.getElementById('a').value;
-    let b =+ document.getElementById('b').value;
-    let c =+ document.getElementById('c').value;
-    document.getElementById('otvet2').innerHTML = a + b + c;
-}
-
-// zadanie 3
-function fn3(){
-    let in3 = document.getElementById('in3').value;
-    let array = in3.split('').map(x=>+x);
-    let sum =+ 0;
-
-    for(i = 0; i < array.length; i++){
-        sum += array[i];        
-    }
-    document.getElementById('otvet3').innerHTML = sum;
-}
-
-// zadanie 4
-function fn4(){
-    let in4 = document.getElementById('in4').value;
-    let array = in4.split(',').map(x=>+x);
-    let sum =+ 0;
-
-    for(i = 0; i < array.length; i++){
-        sum += array[i];        
-    }
-
-    document.getElementById('otvet4').innerHTML = sum / array.length;
-}
-
-// zadanie 5
-function fn5(){
-    let in5 = document.getElementById('in5').value;
-    let array = in5.split(' ');
-
-    document.querySelector('#f').value = array[0];
-    document.querySelector('#i').value = array[1];
-    document.querySelector('#o').value = array[2];
-}
-
-// zadanie 6
-function fn6(){
-    let in6 = document.getElementById('in6').value;
-    let otvet = '';
-
-    for(i = 0; i < in6.length; i++){
-        if(in6[i - 1] == ' ' || i == 0) otvet += in6[i].toUpperCase();
-        else otvet += in6[i];
-    }
-
-    document.querySelector('#in6').value = otvet;
-}
-
-// zadanie 7
-function fn7(){
-    let in7 = document.getElementById('in7').value;
-    let array = in7.split(' ');
-
-    document.getElementById('otvet7').innerHTML = array.length;
-}
-
-// zadanie 8
-function fn8(){
-    let in8 = document.getElementById('in8').value;
-    let array = in8.split('.');
-
-
-    document.getElementById('in8').value = array.reverse().join('-');
-}
-
-// zadanie 9
-function fn9(){
-    let in9 = document.getElementById('in9').value;
-    let array = in9.split('');
-    let array2 = in9.split('').reverse();
-
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] != array2[i]) document.getElementById('otvet9').innerHTML = 'no';
-      else document.getElementById('otvet9').innerHTML = 'yes';
-      
-    }
-}
-
-// zadanie 10
-function fn10(){
-    let in10 = document.getElementById('in10').value;
-    let array = in10.split('');
-    let f =+ 0;
-
-    for(i = 0; i < in10.length; i++){
-        if(array[i] == '3') f++;
-    }
-
-    if(f > 0) document.getElementById('otvet10').innerHTML = 'yes';
-    else document.getElementById('otvet10').innerHTML = 'no';
-}
