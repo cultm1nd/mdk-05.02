@@ -1,156 +1,226 @@
 https://codepen.io/ManuilovaT/pen/oEoQKm
 
 
+ <!--1	Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.-->
+    <p>введите текст или число</p>
+    <input type="text" onfocusout="count()" id="a">
+    <p id="total"></p>
+ <script>
+    function count()
+    {
+        var a=document.getElementById('a').value;
+        document.getElementById('total').innerHTML+=a;
+    }
+ </script>
 
+    <!--2 Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац.-->
+    <p>введите 3 числа</p>
+    <input type="text" id="a">
+    <input type="text" id="b">
+    <input type="text" id="c">
+    <input type="button" onclick="count()" value="click">
+    <p id="total"></p>
+ <script>
+    function count()
+    {
+        var a=parseInt(document.getElementById('a').value);
+        var b=parseInt(document.getElementById('b').value);
+        var c=parseInt(document.getElementById('c').value);
+        document.getElementById('total').innerHTML=a+b+c;
+    }
+ </script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="z">
-    <h3>1	Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.</h3>
-    <input id="first" type="text">
-    <p id="firstP">Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.</p>
-    </div>
-    
-    <div class="z">
-        <h3>2	Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац.</h3>
-        <input id="second1" type="text">
-        <input id="second2" type="text">
-        <p id="secondP">Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац </p>
-        <input type="button" id="secondB" value="ok">
-    </div>
-
-    <div class="z">
-        <h3>3	Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.</h3>
-      <p> Введите число <input id="third" type="text"></p> 
-        <p id="thirdRes"></p>
-    </div>
-
-    <div class="z">
-        <h3>4	Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество).</h3>
-        <p> Введите числа через запятую<input id="fourth" type="text"></p>
-        <p id="fourthRes"></p>
-    </div>
-
-    <div class="z">
-        <h3>5	Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в остальные 3 инпута.</h3>
-        <p> Введите ФИО<input id="fiveth" type="text"></p><br>
-        <input id="fiveth1" type="text"><br>
-        <input id="fiveth2" type="text"><br>
-        <input id="fiveth3" type="text">
-    </div>
-
-    <div class="z">
-        <h3>6	Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в этом же инпуте).</h3>
-       <p>Введите ФИО<input id="sixth" type="text"></p> 
-    </div>
-
-    <div class="z">
-        <h3>7	Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.</h3>
-        <p>Введите текст<input id="seventh" type="text"></p>
-        <p id="seventhP"></p>
-    </div>
-
-    <div class="z">
-        <h3>8	Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.</h3>
-        <input id="eight" type="text">
-    </div>
-    <script>
-        //1
-        let fIn = document.querySelector("#first");
-        let firstP = document.querySelector("#firstP");
-        fIn.addEventListener("blur", function () {
-        firstP.textContent += fIn.value;
-        });
-
-        //2
-        let secondInOne = document.querySelector("#second1");
-        let secondInTwo = document.querySelector("#second2");
-        let secondB = document.querySelector("#secondB");
-        let secondP = document.querySelector("#secondP");
-        secondB.addEventListener("click", function () {
-        secondP.textContent +=
-        Number(secondInOne.value) + Number(secondInTwo.value);
-        });
-
-        //3
-        let thirdIn=document.querySelector("#third");
-        let thirdP = document.querySelector("#thirdRes");
-        thirdIn.addEventListener("blur", function () {
-            let sum=0;
-            let n=thirdIn.value;
-            for (let i = 0; i < n.length; i++) {
+    <!--3 Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.-->
+    <p>введите число</p>
+    <input type="text"  id="a">
+    <p id="total"></p>
+ <script>
+        var a=document.querySelector("#a");
+        var total = document.querySelector("#total");
+        a.addEventListener("blur", function () {
+            var sum=0;
+            var n=a.value;
+            for (var i = 0; i < n.length; i++) 
+        {
           sum += parseInt(n.charAt(i));
         }
-        thirdP.textContent = `Сумма = ${sum}`;
+        document.getElementById("total").innerHTML="сумма= "+sum;
         });
-      
-        //4
-        let fourthIn=document.querySelector("#fourth");
-        let  fourthP = document.querySelector("#fourthRes");
-        let sumF = 0;
-        let srd = 0;
-        fourthIn.addEventListener("blur", function () {
-        let arr = fourthIn.value.split(",");
-        for (let i = 0; i < arr.length; i++) {
-          sumF += parseInt(arr[i]);
+ </script>
+
+
+    <!--4 Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел (сумма делить на количество).-->
+    <p>введите числа через запятую</p>
+    <input type="text" onfocusout="count()" id="a">
+    <p id="total"></p>
+ <script>
+        var a=document.querySelector("#a");
+        var total=document.querySelector("#total");
+        var sum=0;// сумма
+        a.addEventListener("blur", function () {
+        var mas = a.value.split(",");
+        for (var i = 0; i < mas.length; i++) 
+        {
+          sum +=parseInt(mas[i]);
         }
+        document.getElementById("total").innerHTML="среднее арифметическое= "+(sum/mas.length).toFixed(2);
+    });
+        
+ </script>
 
-        fourthP.textContent = `${(sumF / arr.length).toFixed(2)} `;
-      });
 
-      //5
-      let fivethInOne=document.querySelector("#fiveth");
-      let fivethInTw=document.querySelector("#fiveth1");
-      let fivethInTh=document.querySelector("#fiveth2");
-      let fivethInFo=document.querySelector("#fiveth3");
-      fivethInOne.addEventListener("blur", function () {
-        let parts = fivethInOne.value.split(" ");
-
-        if (parts.length >= 3) {
-            fivethInTw.value = parts[0];
-            fivethInTh.value = parts[1];
-            fivethInFo.value = parts[2];
-        } else {
-            fivethInTw.value = "";
-          fivethInTh.value = "";
-          fivethInFo.value = "";
-          alert("вы ошиблись");
+   <!--5	Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в остальные 3 инпута.-->
+    <p>введите ФИО через пробел</p> <input type="text" id="a"><br><br>
+    <input type="text" id="surname">
+    <input type="text" id="im">
+    <input type="text" id="ot">
+ <script>
+        var a=document.querySelector("#a");
+        var surname=document.querySelector("#surname");
+        var name=document.querySelector("#im");
+        var ot=document.querySelector("#ot");
+       a.addEventListener("blur", function () {
+        var inputs = a.value.split(" ");
+        if (inputs.length >= 3) 
+        {
+            surname.value= inputs[0];
+            im.value= inputs[1];
+            ot.value= inputs[2];
         }
+    
       });
-
-      //6
-      let sixthIn = document.getElementById("sixth");
-
-      sixthIn.addEventListener("blur", function () {
-        let fullName = sixthIn.value;
-
-        let words = fullName.split(" ");
-
-        for (let i = 0; i < words.length; i++) {
-          words[i] =
-            words[i][0].toUpperCase() + words[i].slice(1).toLowerCase();
-        }
-
-        sixthIn.value = words.join(" ");
-      });
-
-      //7
-      let seventhIn = document.querySelector("#seventh");
-      let seventhP = document.querySelector("#seventhP");
-
-      seventhIn.addEventListener("blur", function () {
-        let inputText = seventhIn.value.split(" ");
-        seventhP.textContent = `${inputText.length} `;
-      });
-
-      //8
-      let eightIn = document.querySelector("#eight");
     </script>
-</body>
-</html>
+
+
+   <!--6	Дан инпут. В него вводится ФИО через пробел.
+     ФИО вводится с маленькой буквы. Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия,
+     имя и отчество автоматически стали записанными с большой буквы (в этом же инпуте).-->
+     <p>введите ФИО через пробел с маленькой буквы</p>
+     <input id="fullname" type="text" onblur='func()'>
+  <script>
+       function func(){
+	var	fullname = document.getElementById("fullname");
+	var mas = fullname.value.split(' ');
+	for(var i=0; i<mas.length; i++){
+		mas[i] = fBig(mas[i]);
+	}
+	fullname.value = mas.join(' ');
+}
+     </script>
+
+  <!--7	Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.-->
+    <p>введите текст</p> <input type="text" id="a">
+<p id="total"></p>
+ <script>
+        var a=document.querySelector("#a");
+       var total=document.querySelector("#total");
+       a.addEventListener("blur", function () {
+      var txt=a.value.split(" ");
+      document.getElementById("total").innerHTML="длина= "+txt.length;
+    
+      });
+    </script>
+
+    <!--8	Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.-->
+    <p>Введите дату в формате 31.12.2016</p><input id="data" type="text" onblur='func()'>
+     <script>
+    function func()
+{
+	var	data = document.getElementById("data");
+	var mas = data.value.split('.');
+	mas.reverse();
+	data.value = mas.join('-');
+}
+        </script>
+
+
+    <!--9Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам).-->
+    <p>введите слово</p><input id="str" type="text"  onblur='func()'>
+    <p id="total"></p>
+    <script>
+        function func(){
+	var	str = document.getElementById("str");
+	var	total = document.getElementById("total");
+	var mas = str.value.split('');
+	mas.reverse();
+	var str1 = str.value;
+	var str2 = mas.join('');
+	var nn='слово читается не одинаково';
+	if(str1==str2)
+    { 
+        nn='слово читается одинаково с начала и с конца.';
+    }
+	total.innerHTML = 'введенное слово: '+str1+"<br>"+'перевернутое слово: '+str2+"<br>"+nn;
+}
+    </script>
+
+    <!--10	Дан инпут. В него вводится число. Проверьте по потери фокуса, что это число содержит внутри себя цифру 3.-->
+    <P>введите число</P><input id="str" type="text" onkeyup='func()'>
+    <p id="total"></p>
+    <script>
+    function func()
+    {
+	var	str = document.getElementById("str");
+	var	total = document.getElementById("total");
+	var mas = str.value.split('');
+	mas.reverse();
+	var num = mas[0];
+	var str1='';
+	if(num==3)
+    {
+        str1='число 3 есть'
+    }
+	total.innerHTML = 'последний введенный символ: '+num+str1;
+}
+    </script> 
+
+    <!--11	Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.-->
+    <div id='div'>
+        <p>like</p>
+        <p>like</p>
+        <p>like</p>
+    </div>
+    <button onclick='func()'>добавить порядковый номер</button>
+    <script>
+        function func()
+        {
+	var	p = document.querySelectorAll("#div p");
+	for(var i=0; i<p.length; i++)
+    {
+		p[i].innerHTML = p[i].innerHTML + (i+1);
+	}
+        }
+    </script>
+
+    <!--12	Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках.-->
+    <div id='div'>
+        <a  href="https://www.google.com.ua">google</a>
+        <a  href="https://yandex.ua/">yandex</a>
+        <a  href="https://www.google.com.ua">google</a>
+    </div>
+    <script>
+
+    </script>
+
+
+
+    <!--14-->
+    <div id='div'>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+    </div>
+    <script>
+        function func(){
+	var total = this;
+	var num = Number(total.innerHTML);
+	total.innerHTML = num + ' * '+ num + ' = ' + num*num;
+	total.removeEventListener('click', func);
+}
+
+var total1 = document.querySelectorAll("#div p");
+for(var i=0; i<total1.length; i++)
+{
+	total1[i].addEventListener('click', func);
+}
+    </script>
