@@ -1,0 +1,351 @@
+1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta id="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Задание 1. «Квадратное уравнение»
+Разработайте сценарий для веб-страницы, который по заданным коэффициентам a, b, c вычисляет и выводит на страницу корни квадратного уравнения.-->
+<h1>решение квадратного уравнения ax<sup>2</sup>+bx+c=0</h1>
+<div class="container">
+
+    <fieldset class="task">
+        <legend>Дано</legend>
+        <h4>Введите значение коэффицента a</h4> <input type="text" id="a" style="width:40px ; height:20px; "><br><br>
+        <h4>Введите значение коэффицента b</h4> <input type="text" id="b" style="width:40px ; height:20px; "><br><br>
+        <h4>Введите значение коэффицента c</h4> <input type="text" id="c" style="width:40px ; height:20px; "><br><br>
+       </fieldset>
+
+       <fieldset class="solution">
+        <legend>Решение</legend>
+        <h4>D= </h4> <input type="text"id="d" ><br><br>
+        <h4 >для уравнения</h4><br><input type="text" id="ur">
+        <h4>x<sub>1</sub>=</h4> <input type="text" id="x1">
+        <h4>x<sub>2</sub>=</h4> <input type="text" id="x2">
+       </fieldset>
+<div class="button">
+       <input type="submit" value="показать решение" onclick="count()" style="width:150px; height: 20px;">
+       <input type="submit" value="очистить" onclick="clear()" style="width:100px; height: 20px;">
+    </div>
+
+</div>
+<script>
+function count()
+{
+    var a=pasreInt(document.getElementById("a").value);
+    var b=pasreInt(document.getElementById("b").value);
+    var c=pasreInt(document.getElementById("c").value);
+    var x1=0;
+    var x2=0;
+    var d=parseInt(Math.pow(b,2)-4*a*c);
+    document.getElementById("d").value= d;
+    document.getElementById("ur").value= a+"x^2"+"+"+b+"x"+"+"+c;
+    if(d>0)
+    {
+        x1=(-b+Math.sqrt(d))/2*a;
+        document.getElementById('x1').value=x1;
+        x2=(-b-Math.sqrt(d))/2*a;
+        document.getElementById('x2').value=x2;
+    }
+    if(d=0)
+    {
+        x1=(-b+Math.sqrt(d))/2*a;
+        document.getElementById('x1').value=x1;
+    }
+    else
+    {
+        document.getElementById('x1').value="действит-ых корней нет";
+        document.getElementById('x2').value="действит-ых корней нет";
+    }
+    
+}
+function clear()
+{
+    document.getElementById('elem').onclick = function() {
+   this.innerHTML = '';
+}
+}
+</script>
+</body>
+</html>
+
+2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Разработайте сценарий для веб-страницы, который предлагает перевести введенное 
+    число из одной системы в другую: из градусов в радианы, из градусов по Цельсию в градусы по Кельвину, из одной системы счисления в другую.-->
+    <div class="container">
+
+ <p>введите число в градусах по Цельсию</p><input type="text" id="one">
+ <input type="button" onclick="count1()" value="перевести"></input>
+ <p id="total1"></p>
+ <p>введите число в градусах по Цельсию</p><input type="text" id="two">
+ <input type="button" onclick="count2()" value="перевести"></input>
+ <p id="total2"></p>
+ <p>введите число в двоичной системе</p><input type="text" id="free">
+ <input type="button" onclick="count3()" value="перевести"></input>
+ <p id="total3"></p>
+ <p>введите число в десятичной системе</p><input type="text" id="four">
+ <input type="button" onclick="count4()" value="перевести"></input>
+ <p id="total4"></p>
+    </div>
+    <script>
+        function count1()
+        {
+            var one=parseFloat(document.getElementById("one").value);
+            if(one/1==one)
+            {
+                var total1=one*(3.14159/180);
+            document.getElementById("total1").innerHTML=one+" градусов по Цельсию= "+ total1.toFixed(2)+" градусов в радианах.";
+            }
+            else{
+            document.getElementById("total1").innerHTML="введите данные правильно";
+            }
+        }
+        function count2()
+        {
+            var two=parseFloat(document.getElementById("two").value);
+            if(two/1==two)
+            {
+            var total2=two+273.15;
+            document.getElementById("total2").innerHTML=two+" градусов по Цельсию= "+ total2.toFixed(2)+" по Кельвину.";
+            }
+            else
+            {
+                document.getElementById("total2").innerHTML="введите данные правильно";
+            }
+        }
+        function count3()
+        {
+            var free=parseInt(document.getElementById("free").value);
+            if(free/1==free)
+            {
+                document.getElementById("total3").innerHTML=free+"(в двоичной системе)= "+ parseInt(free,2)+"(в десятичной системе)";
+            }
+           else
+           {
+            document.getElementById("total3").innerHTML=free+"введите данные правильно";
+           }
+        }
+        function count4()
+        {
+            var four=parseInt(document.getElementById("four").value);
+            if(four/1==four)
+            {
+                document.getElementById("total4").innerHTML=four+"(в двоичной системе)= "+four.toString(2)+"(в десятичной системе)";
+            }
+            else
+            {
+                document.getElementById("total4").innerHTML=four+"введите данные правильно";
+            }
+            
+        }
+    </script>
+</body>
+</html>
+
+3
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: flex;
+        }
+        .grid {
+            width: 155px;
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            grid-template-rows: repeat(3, 1fr);
+        }
+        .block input{
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p>det</p>
+        <div class="grid">
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+            <div class="block">
+                <input class="box" type="number">
+            </div>
+        </div>
+        <p>=</p>
+        <input type="number" id="total" style="width:35px; height:35px;">
+    </div>
+    <br>
+    <button onclick="count()">найти определитель</button>
+
+    <script>
+        count= () => 
+        {
+            let total = document.querySelector('#total');
+            let grid = document.querySelectorAll('.box');
+            total.value= +grid[0].value * +grid[4].value * +grid[8].value + +grid[1].value * +grid[5].value * +grid[6].value + +grid[2].value * +grid[3].value * +grid[7].value - +grid[2].value * +grid[4].value * +grid[6].value - +grid[0].value * +grid[5].value * +grid[7].value - +grid[1].value * +grid[3].value * +grid[8].value;
+        }
+    </script>
+</body>
+
+4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>принтеры</p>
+    <select id="printers" multiple="true" >
+        <option value="">HP Color LaserJet 2600n</option>
+        <option value="">HP LaserJet 1018</option>
+        <option value="">Lexmark X2350</option>
+        <option value="">Epson Stylus C110</option>
+        <option value="">Ricoh Aficio CL7100D</option>
+      </select>
+      <br>
+      <br>
+      <input type="button" onclick="add1()" value="добавить в корзину">
+      <p>мониторы</p>
+      <select id="desks" multiple="true" onchange="f2">
+          <option value="">LG Flatron L226WTQ-WF</option>
+          <option value="">View Sonic VX2255w mb</option>
+          <option value="">Acer X221W</option>
+
+          <option value="">Envision G22LWK</option>
+        </select>
+        <br>
+        <br>
+        <input type="button" onclick="add2()" value="добавить в корзину">
+        <p>интераткивные доски</p>
+        <select id="doskas" multiple="true" >
+            <option value="">SMARTboard</option>
+            <option value="">Interw rite SchoolBoard</option>
+            <option value="">Lexmark X2350</option>
+            <option value="">Poly Vision Webster</option>
+            <option value="">ACTIVboard 64</option>
+          </select>
+          <br>
+          <br>
+          <input type="button" onclick="add3() " value="добавить в корзину">
+          <br>
+          <br>
+         выбранные товары(корзина)<select id="korzina" multiple="true" onchange="count()"></select>
+         <br>
+         <br>
+         <input type="button" onclick="Dels()" value="удалить выбранный товар">
+         <br>
+         <br>
+         валюта <select id="five" >
+            <optgroup label="v">
+                <option value="">рубли</option>
+                <option value="">доллары</option>
+                <option value="">евро</option>
+              </optgroup>
+          </select>
+          <br>
+         <br>
+         стоимость выбранного товара  <input type="text" id="stoim">
+         <br>
+         <br>
+         общая стоимость покупки  <input type="text" id="ostoim">
+<script>
+  var printers=document.getElementById('printers');
+  var desks=document.getElementById('desks');
+  var doskas=document.getElementById('doskas');
+  var korzina=document.getElementById('korzina');
+  //массивы цен
+  var mas=new Map();
+  mas.set("HP Color LaserJet 2600n",10000);
+  mas.set("HP LaserJet 1018",20000);
+  mas.set("Lexmark X2350",15000);
+  mas.set("Epson Stylus C110",8000);
+  mas.set("Ricoh Aficio CL7100D",50000);
+
+  mas.set("LG Flatron L226WTQ-WF",30000);
+  mas.set("View Sonic VX2255w mb",10000);
+  mas.set("Acer X221W",15000);
+
+  mas.set("SMARTboard",45700);
+  mas.set("Interw rite SchoolBoard",25360);
+  mas.set("Lexmark X2350",156000);
+  mas.set("Poly Vision Webster",20000);
+  mas.set("ACTIVboard 64",90000);
+
+  var ostoim=document.getElementById('ostoim');
+var sum=0;
+  function add1()
+  {
+    korzina.innerHTML +='<option>'+printers.options[printers.options.selectedIndex].text+' </option>';
+    sum+=+mas.get(printerss[printers.selectedIndex].text);
+    ostoim.value=sum;
+
+  }
+
+  function add2()
+  {
+    korzina.innerHTML +='<option>'+desks.options[desks.options.selectedIndex].text+' </option>';
+    sum+=+mas.get(desks[desks.selectedIndex].text);
+    ostoim.value=sum;
+  }
+
+  function add3()
+  {
+    korzina.innerHTML +='<option>'+doskas.options[doskas.options.selectedIndex].text+' </option>';
+    sum+=+mas.get(doskas[doskas.selectedIndex].text);
+    ostoim.value=sum;
+  }
+  
+  function Dels()
+  {
+  var dels=document.getElementById('korzina');
+  dels.options[dels.options.selectedIndex].remove();
+  }
+
+  function count()
+  {
+    document.getElementById('stoim').value=mas.get(korzina.options[korzina.options.selectedIndex].text);
+  }
+
+</script>
+</body>
+</html>
