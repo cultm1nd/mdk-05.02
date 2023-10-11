@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #elem {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!--1.	Создайте блок, в котором будут показываться координаты курсора при перемещении мыши.-->
+    <div id="elem"></div>
+    <script>
+        var elem = document.getElementById('elem');
+        function func(event) {
+            this.innerHTML = event.clientX + ':' + event.clientY;
+        }
+        elem.onmousemove = func;
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #show {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            position: absolute;
+            top: 30px;
+            left: 0px;
+        }
+
+        body {
+            height: 400px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--2.Создайте блок содержащий квадрат, при нажатии курсором в любое место внутри блока, квадрат перемещается в данное место.-->
+    <div id="show"></div>
+    <script>
+        window.addEventListener('click', go);
+        function go(event) {
+            var elem = document.getElementById('show');
+            elem.style.left = event.clientX + 'px';
+            elem.style.top = event.clientY + 'px';
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--3.	Создайте текстовое поле, при введении в поле буквы, выводится код клавиши.-->
+    <p>введите букву</p> <input id="input">
+    <div id="total"></div>
+    <script>
+        var txt = document.getElementById('input');
+        var total = document.getElementById('total');
+        input.onkeypress = func;
+        function func(event) {
+            var code = event.keyCode;
+            total.innerHTML = "код: " + code;
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--4.	Создайте текстовое поле, при введении в поле буквы или символа, выводится  сама клавиша.-->
+    <p>введите букву</p> <input id="input">
+    <div id="total"></div>
+    <script>
+        var txt = document.getElementById('input');
+        var total = document.getElementById('total');
+        txt.addEventListener('keydown', function (event) {
+            var key = event.key;
+            total.innerHTML = "клавиша: " + key;
+        })
+    </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <!--5.	Дан элемент. Сделайте так, чтобы по клику на него он красился в красный цвет, но только если в момент клика нажата клавиша Ctrl.-->
+    <div id="elem">привет</div>
+    <script>
+        var elem = document.getElementById('elem');
+        elem.addEventListener('click', function (event) {
+            if (event.ctrlKey) {
+                elem.style.color = "red";
+            }
+        }
+
+        )
+
+    </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #elem {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <!--6.	Дан элемент. Сделайте так, чтобы при клике на него и нажатой клавише Ctrl - в его текст записывалось '1', при нажатой клавише Alt - '2', а при нажатой клавише Shift - '3'.-->
+    <div id="elem"></div>
+    <script>
+        var elem = document.getElementById('elem');
+        elem.addEventListener('click', function (event) {
+            if (event.ctrlKey) {
+                elem.innerHTML = "1";
+            }
+            else if (event.altKey) {
+                elem.innerHTML = "2";
+            }
+            else if (event.shiftKey) {
+                elem.innerHTML = "3";
+            }
+        }
+
+        )
+
+    </script>
+</body>
+
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--7.	Дан инпут. 
+    В него вводится текст и нажимается клавиша Enter (ее код имеет номер 13).
+    Сделайте так, чтобы по нажатию Enter введенный текст попадал в абзац под инпутом, а содержимое инпута очищалось.-->
+    <input id="elem">
+    <p id="total"></p>
+    <script>
+        var elem = document.getElementById('elem');
+        var total = document.getElementById('total');
+        elem.addEventListener('keydown', function (event) {
+            if (event.keyCode == 13) {
+                total.innerHTML = elem.value;
+                elem.value = '';
+            }
+        })
+    </script>
+</body>
+
+</html>
