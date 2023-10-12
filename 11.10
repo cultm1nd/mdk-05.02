@@ -6,224 +6,240 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        #elem {
-            border: 1px solid black;
-        }
-    </style>
-</head>
-
-<body>
-    <!--1.	Создайте блок, в котором будут показываться координаты курсора при перемещении мыши.-->
-    <div id="elem"></div>
-    <script>
-        var elem = document.getElementById('elem');
-        function func(event) {
-            this.innerHTML = event.clientX + ':' + event.clientY;
-        }
-        elem.onmousemove = func;
-    </script>
-</body>
-
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #show {
-            width: 100px;
-            height: 100px;
-            border: 1px solid red;
-            position: absolute;
-            top: 30px;
-            left: 0px;
-        }
-
-        body {
-            height: 400px;
-            margin: 0px;
-        }
-    </style>
-</head>
-
-<body>
-    <!--2.Создайте блок содержащий квадрат, при нажатии курсором в любое место внутри блока, квадрат перемещается в данное место.-->
-    <div id="show"></div>
-    <script>
-        window.addEventListener('click', go);
-        function go(event) {
-            var elem = document.getElementById('show');
-            elem.style.left = event.clientX + 'px';
-            elem.style.top = event.clientY + 'px';
-        }
-    </script>
-
-</body>
-
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <!--3.	Создайте текстовое поле, при введении в поле буквы, выводится код клавиши.-->
-    <p>введите букву</p> <input id="input">
-    <div id="total"></div>
-    <script>
-        var txt = document.getElementById('input');
-        var total = document.getElementById('total');
-        input.onkeypress = func;
-        function func(event) {
-            var code = event.keyCode;
-            total.innerHTML = "код: " + code;
-        }
-    </script>
-
-</body>
-
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <!--4.	Создайте текстовое поле, при введении в поле буквы или символа, выводится  сама клавиша.-->
-    <p>введите букву</p> <input id="input">
-    <div id="total"></div>
-    <script>
-        var txt = document.getElementById('input');
-        var total = document.getElementById('total');
-        txt.addEventListener('keydown', function (event) {
-            var key = event.key;
-            total.innerHTML = "клавиша: " + key;
-        })
-    </script>
-</body>
-
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 <style>
-
-</style>
-
-<body>
-    <!--5.	Дан элемент. Сделайте так, чтобы по клику на него он красился в красный цвет, но только если в момент клика нажата клавиша Ctrl.-->
-    <div id="elem">привет</div>
-    <script>
-        var elem = document.getElementById('elem');
-        elem.addEventListener('click', function (event) {
-            if (event.ctrlKey) {
-                elem.style.color = "red";
-            }
-        }
-
-        )
-
-    </script>
-</body>
-
-</html>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    #elem {
+    #block {
         width: 100px;
         height: 100px;
-        border: 1px solid black;
+       border: 1px solid black;
+       display: flex;
+    
+    }
+
+    #borders {
+        display: flex;
+        column-gap: 10px;
     }
 </style>
 
-<body>
-    <!--6.	Дан элемент. Сделайте так, чтобы при клике на него и нажатой клавише Ctrl - в его текст записывалось '1', при нажатой клавише Alt - '2', а при нажатой клавише Shift - '3'.-->
-    <div id="elem"></div>
+
+    <!--стилизация блока-->
+    <!--ширина и высота-->
+
+    <div id="block">
+        <p id="p__text"></p>
+    </div>
+    <div id="bloc">
+    <p>желаемая ширина</p>
+    <input type="text" id="wid" min="0">
+    <p>желаемая высота</p>
+    <input type="text" id="hei" min="0">
+    <!--цвет-->
+    <p>желаемый цвет блока</p>
+    <label for="backgroundColor"></label>
+    <input type="color" id="background">
+    <br><br>
+    <!--картинка-->
+    <input type="text" id="img" placeholder="введите ссылку на картинки">
+    <button type="submit" onclick="show()">показать картинку</button>
+    <br><br>
+    <!--границы-->
+    <div id="borders">
+        <p>стили границ</p>
+        <select id="stylegran" multiple="">
+            <option>none</option>
+            <option>dotted</option>
+            <option>dashed</option>
+            <option>double</option>
+        </select>
+        <br> <br>
+        цвет границы
+        <input type="color" id="border_col">
+        <br> <br>
+       <p>толщина</p> <input type="text" id="tol" style="width:30px; height:30px;">
+    </div>
+    <!--текст-->
+    <br>
+    <br><br>
+    выравнивание
+    <input id="text" type="text" placeholder="Введите текст">
+    <select id="sText" onchange="text()" multiple="">
+        <option value="">Сверху-слева</option>
+        <option value="">Сверху-посередине</option>
+        <option value="">Сверху-справа</option>
+        <option value="">Центр-слева</option>
+        <option value="">Центр-посередине</option>
+        <option value="">Центр-справа</option>
+        <option value="">Снизу-слева</option>
+        <option value="">Снизу-посередине</option>
+        <option value="">Снизу-справа</option>
+    </select><br><br>
+    <br>
+    <br>
+     <p>добавление тени</p>
+    <div class="shadow">
+        <div class="">
+            <p>цвет</p>
+            <select id="sShColor">
+                <option value="">none</option>
+                <option value="">черный</option>
+                <option value="">синий</option>
+                <option value="">зеленый</option>
+            </select>
+        </div>
+
+        <div class="">
+            <div class="">
+                <p>координата X</p>
+                <input type="text" id="inX">
+            </div>
+    
+            <div class="">
+                <p>координата Y</p>
+                <input type="text" id="inY">
+            </div>
+        </div>
+
+
+        <div class="">
+            <p>радиус размытия</p>
+            <select id="sShBlur">
+                <option value="">1px</option>
+                <option value="">3px</option>
+                <option value="">5px</option>
+                <option value="">10px</option>
+                <option value="">15px</option>
+            </select>
+        </div>
+    </div><br>
+    <button onclick="shadow()">Применить</button><br><br>
+    <br><br>
+    <input type="button" onclick="count()" value="изменить">
+</div>
+
+
     <script>
-        var elem = document.getElementById('elem');
-        elem.addEventListener('click', function (event) {
-            if (event.ctrlKey) {
-                elem.innerHTML = "1";
-            }
-            else if (event.altKey) {
-                elem.innerHTML = "2";
-            }
-            else if (event.shiftKey) {
-                elem.innerHTML = "3";
-            }
+        function count()
+        {
+            var block = document.getElementById('block');
+            var width = document.getElementById('wid').value + 'px';
+            var height = document.getElementById('hei').value + 'px';
+            var background = document.getElementById('background').value;
+            var border=document.getElementById('border');
+            var border_col=document.getElementById('border_col').value;
+            var border_tol=document.getElementById('tol').value +'px';
+            var border_st=document.getElementById('stylegran');
+            border_st =  border_st.options[border_st.selectedIndex].innerText || 'none';
+            block.style.width = width;//ширина
+            block.style.height = height;//высота
+            block.style.backgroundColor = background;//цвет
+            block.style.borderColor = border_col;//цвет границы
+            block.style.borderWidth=border_tol;//толщина границы
+            block.style.borderStyle=border_st;//стиль границы
+
+
         }
+        function show()
+        {
+            var img=document.getElementById("img");
+            block.style.backgroundImage='url('+img.value+')';
+            console.log(img.value);
+            block.style.backgroundSize='cover';
+            //https://nn.versia.ru/webp/540/360/images/s/a/samye-modnye-bukety-cvetov-v-podarok-na-den-svyatogo-valentina-v-yetom-godu-1-1.jpg
+        }
+        //shadow
+        function shadow() 
+{
+let sColor = '';
+let ShColor = document.getElementById('sShColor').options; 
+ if (ShColor[ShColor.selectedIndex].text == 'Нет')
+ {
+    block.style.boxShadow = 'none';
+ }
+ if (ShColor[ShColor.selectedIndex].text == 'чёрный')
+ {
+    sColor = 'black';
+ }
+ if (ShColor[ShColor.selectedIndex].text == 'синий')
+ {
+    sColor = 'blue';
+ }
+ if (ShColor[ShColor.selectedIndex].text == 'зеленый')
+ {
+    sColor = 'green';
+ }
 
-        )
+ let x = document.getElementById('inX').value;
+ let y = document.getElementById('inY').value;
+ 
+ let blur = document.getElementById('sShBlur').options; 
 
-    </script>
-</body>
+block.style.boxShadow = x + 'px ' + y +'px ' + (blur[blur.selectedIndex].text) + ' ' + sColor;
+}
+function text() {
+    let text = document.getElementById('text');
+    document.getElementById('p__text').innerHTML = text.value;
+    let sText = document.getElementById('sText').options; 
+    console.log(sText)
+    console.log(sText[sText.selectedIndex].text)
+     if (sText[sText.selectedIndex].text == 'Сверху-слева')
+     {
+        console.log(sText[sText.selectedIndex].text == 'Сверху-слева')
+        
+        block.style.justifyContent = 'flex-start';
+        block.style.alignItems = 'flex-start';
+     }
 
-</html>
+     if (sText[sText.selectedIndex].text == 'Сверху-посередине')
+     {
+        console.log(sText[sText.selectedIndex].text == 'Сверху-посередине')
+        block.style.justifyContent = 'center';
+        block.style.alignItems = 'flex-start';
+     }
 
+     if (sText[sText.selectedIndex].text == 'Сверху-справа')
+     {
+        block.style.justifyContent = 'flex-end';
+        block.style.alignItems = 'flex-start';
+     }
 
-<!DOCTYPE html>
-<html lang="en">
+     if (sText[sText.selectedIndex].text == 'Центр-слева')
+     {
+        block.style.justifyContent = 'flex-start';
+        block.style.alignItems = 'center';
+     }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+     if (sText[sText.selectedIndex].text == 'Центр-посередине')
+     {
+        block.style.justifyContent = 'center';
+        block.style.alignItems = 'center';
+     }
 
-<body>
-    <!--7.	Дан инпут. 
-    В него вводится текст и нажимается клавиша Enter (ее код имеет номер 13).
-    Сделайте так, чтобы по нажатию Enter введенный текст попадал в абзац под инпутом, а содержимое инпута очищалось.-->
-    <input id="elem">
-    <p id="total"></p>
-    <script>
-        var elem = document.getElementById('elem');
-        var total = document.getElementById('total');
-        elem.addEventListener('keydown', function (event) {
-            if (event.keyCode == 13) {
-                total.innerHTML = elem.value;
-                elem.value = '';
-            }
-        })
+     if (sText[sText.selectedIndex].text == 'Центр-справа')
+     {
+        block.style.justifyContent = 'flex-end';
+        block.style.alignItems = 'center';
+     }
+
+     if (sText[sText.selectedIndex].text == 'Снизу-слева')
+     {
+        block.style.justifyContent = 'flex-start';
+        block.style.alignItems = 'flex-end';
+     }
+
+     if (sText[sText.selectedIndex].text == 'Снизу-посередине')
+     {
+        block.style.justifyContent = 'center';
+        block.style.alignItems = 'flex-end';
+     }
+
+     if (sText[sText.selectedIndex].text == 'Снизу-справа')
+     {
+        block.style.justifyContent = 'flex-end';
+        block.style.alignItems = 'flex-end';
+     }
+
+}
     </script>
 </body>
 
