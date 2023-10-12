@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #block
+    {
+        width:300px;
+        height: 300px;
+        border: 1px solid black;
+    }
+
+
+</style>
+<body>
+    <h1>1 вариант</h1>
+    <!--1.	Создайте веб-приложение, которое при нажатии на кнопку меняет цвет фона и выводит hex-код используемых цветов.-->
+    <div id="main">
+    <div id="block">
+        <p id="total" style="text-align:center"></p>
+    </div><br><br>
+    <button type="submit" onclick="change()">change</button>
+</div>
+    <script>
+        function change()
+        {
+        var block=document.getElementById('block');
+        var mas=['#DC143C','#008B8B','#00FF7F','#FF69B4','#AFEEEE','#FF8C00','#7B68EE','#2F4F4F','#6B8E23','#191970','#9370DB'];
+        var total=mas[Math.floor(Math.random()*mas.length)];
+        block.style.backgroundColor=total;
+        document.getElementById('total').innerHTML=total;
+        }
+    </script>
+</body>
+</html>
