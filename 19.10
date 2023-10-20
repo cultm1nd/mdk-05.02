@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--1.Реализуйте класс Worker (Работник), который будет иметь следующие свойства: 
+        name (имя), surname (фамилия), rate (ставка за день работы), days (количество отработанных дней). 
+        Также класс должен иметь метод getSalary(), который будет выводить зарплату работника.
+         Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days. -->
+         <p id="total"></p>
+         <script>
+
+class Worker
+{
+#name;
+#surname;
+#rate;
+#days;
+constructor(name, surname,rate,days)
+{
+    this.#name=name;
+    this.#surname=surname;
+    this.#rate=rate;
+    this.#days=days;
+}
+
+getName()
+{
+    return this.#name;
+}
+getSurame()
+{
+    return this.#surname;
+}
+getRate()
+{
+    return this.#rate;
+}
+getDays()
+{
+    return this.#days;
+}
+getSalary()
+{
+    var salary=this.#rate*this.#days;
+    return salary;
+}
+}
+
+            var worker =new Worker('Иван', 'Иванов',10,31);
+           document.getElementById('total').innerHTML+=(worker.getName())+"<br>";
+           document.getElementById('total').innerHTML+=(worker.getSurame())+"<br>";
+           document.getElementById('total').innerHTML+=(worker.getRate())+"<br>";
+           document.getElementById('total').innerHTML+=(worker.getDays())+"<br>";
+           document.getElementById('total').innerHTML+=(worker.getSalary());
+         </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--2.	Модифицируйте класс Worker из предыдущей задачи следующим образом: сделайте все его свойства приватными, 
+        а для их чтения сделайте методы-геттеры. Наш класс теперь будет работать так:-->
+        <p id="total"></p>
+        <script>
+
+            class Worker
+            {
+            constructor(name, surname,days,rate)
+            {
+                this.name=name;
+                this.surname=surname;
+                this.rate=rate;
+                this.days=days;
+            }
+            getSalary()
+            {
+            return this.rate*this.days;
+            }
+            }
+            
+                        var worker =new Worker('Иван', 'Иванов',10,31);
+                       document.getElementById('total').innerHTML+=worker.name+"<br>";
+                       document.getElementById('total').innerHTML+=worker.surname+"<br>";
+                       document.getElementById('total').innerHTML+=worker.rate+"<br>";
+                       document.getElementById('total').innerHTML+=worker.days+"<br>";
+                       document.getElementById('total').innerHTML+=worker.getSalary();
+                     </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--3.	Модифицируйте класс Worker из предыдущей задачи следующим образом:
+    для свойства rate и для свойства days сделайте еще и методы-сеттеры. Наш класс теперь будет работать так:-->
+    <p id="total"></p>
+    <script>
+
+        class Worker
+        {
+        #name;
+        #surname;
+        #rate;
+        #days;
+        constructor(name, surname,days,rate)
+        {
+            this.name=name;
+            this.surname=surname;
+            this.rate=rate;
+            this.days=days;
+        }
+        //change
+        setName(name)
+        {
+            return this.#name=name;
+        }
+        setSurname(surname)
+        {
+            return this.#surname=name;
+        }
+        setDays(days)
+        {
+            return this.#days=days;
+        }
+        setRate(rate)
+        {
+            return this.#rate=rate;
+        }
+
+        //get
+        getName()
+        {
+            return this.#name=name;
+        }
+        getSurname()
+        {
+            return this.#surname=name;
+        }
+        getDays()
+        {
+            return this.#days=days;
+        }
+        getRate()
+        {
+            return this.#rate=rate;
+        }
+        getSalary()
+        {
+        var salary=this.#rate * this.#days;
+        return salary;
+        }
+        }
+        
+                    var worker =new Worker('Иван', 'Иванов',10,31);
+                   document.getElementById('total').innerHTML+=worker.name+"<br>";
+                   document.getElementById('total').innerHTML+=worker.surname+"<br>";
+                   document.getElementById('total').innerHTML+=worker.rate+"<br>";
+                   document.getElementById('total').innerHTML+=worker.days+"<br>";
+                   document.getElementById('total').innerHTML+=worker.getSalary();
+
+                   worker.setRate(20);
+                   worker.setDays(10);
+                   document.getElementById("total").innerHTML+='salary: '+ (worker.getSalary()) + " <br>";
+                 </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--4.	Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(), 
+        который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(), 
+        который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву заглавной
+         и метод ucWords, который принимает строку и делает заглавной первую букву каждого слова этой строки.-->
+         <p id="total"></p>
+
+    <script>
+      class MyString {
+        #str;
+
+        constructor(str) {
+          this.#str = str;
+        }
+
+        reverse() {
+          return this.#str.split("").reverse().join("");
+        }
+
+        upFirst() {
+          var array = this.#str.split("");
+          array[0] = array[0].toUpperCase();
+          return array.join("");
+        }
+
+        upWords() {
+          var array = this.#str.split(" ");
+          array.forEach((element, index) => {
+            array[index] = element[0].toUpperCase() + element.substring(1);
+          });
+          return array.join(" ");
+        }
+      }
+      const txt = "abcde abcde abcde";
+      var string = new MyString(txt);
+      document.getElementById("total").innerHTML +=string.reverse()+'<br>'; 
+      document.getElementById("total").innerHTML +=string.upFirst()+'<br>'; 
+      document.getElementById("total").innerHTML +=string.upWords()+'<br>'; 
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--5.	Реализуйте класс Validator, который будет проверять строки.
+         К примеру, у него будет метод isEmail параметром принимает строку и проверяет, 
+         является ли она корректным емейлом или нет. Если является - возвращает true, если не является - то false. 
+         Кроме того, класс будет иметь следующие методы: метод isDomain для проверки домена, метод isDate для проверки даты и метод isPhone для проверки телефона:-->
+         <p id="total"></p>
+        <script>
+            class Validator
+            {
+                #string;
+                constructor(string)
+                {
+                this.#string=string;
+                }
+
+                isEmail()
+                {
+                var array = this.#string.split("");
+                var point = this.#string.split(".");
+                return (
+                array.includes("@") &&
+                array[0] != "@" &&
+                (point.includes("ru") || point.includes("com")));
+                }
+                isDomain()
+                {
+                var point = this.#string.split(".");
+                return (
+                point.includes("ru") ||
+                point.includes("com"));
+                }
+                isDate()
+                {
+                var dateExp = /^\d{2}([./-])\d{2}\1\d{4}$/;
+                return dateExp.test(this.#string);
+                }
+                isPhone()
+                {
+                    var phoneExp =/^\+?(\d{1,4})?[-.]?\(?(\d{3})\)?[-.]?(\d{3})[-.]?(\d{4})$/;
+                    return phoneExp.test(this.#string);
+                }
+            }
+      const txt = "abcde abcde abcde";
+      var str1 = new Validator(txt);
+
+      const email = "example@mail.ru";
+      var str2 = new Validator(email);
+
+      const domain = "domain.ru";
+      var str3 = new Validator(domain);
+
+      const date = "14.05.2006";
+      var str4 = new Validator(date);
+
+     const phone = "81234567890";
+      var str5 = new Validator(phone);
+
+      document.getElementById("total").innerHTML +=str1.isEmail() +"<br>";
+      document.getElementById("total").innerHTML +=str2.isEmail()+"<br>";
+      document.getElementById("total").innerHTML +=str3.isDomain()+"<br>";
+      document.getElementById("total").innerHTML +=str4.isDate()+"<br>";
+      document.getElementById("total").innerHTML +=str5.isPhone()+"<br>";
+        </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Реализуйте класс Rectangle. У него должны быть следующие свойства: ширина width, высота height.
+         Также у него должны быть следующие методы: получить ширину getWidth, установить ширину setWidth,
+          получить высоту getHeight, установить высоту setHeight.-->
+<p id="total"></p>
+          <script>
+            class Rectangle
+            {
+                #width;
+                #height;
+
+            getWidth()
+            {
+            return this.#width;
+            }
+            getHeight()
+            {
+            return this.#height;
+            }
+
+            setWidth(width)
+            {
+            this.#width=width;
+            }
+            setHeight(height)
+            {
+            this.#height=height;
+            }
+            }
+           var rectangle = new Rectangle();
+           rectangle.setHeight(100);
+           rectangle.setWidth(100);
+          document.getElementById("total").innerHTML +=("height: " + rectangle.getHeight() + " width: " + rectangle.getWidth());
+          </script>
+</body>
+</html>
