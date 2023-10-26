@@ -54,98 +54,187 @@ height:20px;
 <body>
     <!--2.Разработать тест самопроверки на тему “JavaScript. Использование окон и фреймов” (минимум 10 вопросов). 
         При каждом запуске сценария на экран должно выводиться случайным образом 75% от общего числа вопросов теста.-->
-        <h1>Тест на тему "JavaScript. Использование окон и фреймов"</h1>
-        <input type="submit" onclick="count()" value="START TEST" id="button">
-        <p id="total"></p>
-        <script>
-            function count()
-            {
-            //array questions
-            const questions=
-            [
-                //1
-                {
-            question:'Какой объект в JS используется для работы с окнами и фреймами?',
-            options:['window','document','navigator','location'],
-            answer:['window']
-                },
-                //2
-                {
-            question:'Как открыть новое окно браузера с помощью JS?',
-            options:['window.open()','document.open()','navigator.open()','location.open()'],
-            answer:['window.open()']
-                },
-                //3
-                {
-            question:'Как закрыть текущее окно браузера с помощью JS?',
-            options:['window.close()','document.close()','navigator.close()','location.close()'],
-            answer:['window.close()']
-                },
-                //4
-                {
-            question:'Как получить доступ к фрейму на странице с помощью JS?',
-            options:['window.frame','document.frame','parent.frame','frames.frame'],
-            answer:['frames.frame']
-                },
-                //5
-                {
-            question:'Как изменить размер окна браузера  с помощью JS?',
-            options:['window.resizeTo()','document.resizeTo()','navigator.resizeTo()','location.resizeTo()'],
-            answer:['window.resizeTo()']
-                },
-                //6
-                {
-            question:'Как получить текущий URL адрес страницы с помощью JS?',
-            options:['window.URL','document.URL','navigator.URL','location.URL'],
-            answer:['location.URL']
-                },
-               //7
-                {
-            question:'Как изменить URL адрес страницы с помощью JS?',
-            options:['window.location.href','document.location.href','navigator.location.href','location.href'],
-            answer:['location.href']
-                },
-                //8
-                {
-            question:'Как открыть ссылку в новом окне браузера с помощью JS?',
-            options:['window.openLink()','document.openLink()','navigator.openLink()','window.open("http://example.com","_blank")'],
-            answer:['window.open("http://example.com","_blank")']
-                },
-                //9
-                {
-            question:'Как получить ширину окна браузера с помощью JS?',
-            options:['window.width','document.width','navigator.width','window.innerWidth'],
-            answer:['window.innerWidth']
-                },
-                //10
-                {
-            question:'Как получить высоту окна браузера с помощью JS?',
-            options:['window.height','document.height','navigator.height','window.innerHeight'],
-            answer:['window.innerHeight']
-                },
-            ];
-            var numQ=Math.floor(questions.length*0.75);//75%
-            var selectedQ=[];
-            //random que in array
-            while(selectedQ.length<numQ)
-            {
-                var rndIndex=Math.floor(Math.random()*questions.length);
-                if(!selectedQ.includes(rndIndex))
-                {
-                    selectedQ.push(rndIndex);
-                }
-            }
-            //que on desktop
-            for(var i=0;selectedQ.length;i++)
-            {
-                var question=questions[selectedQ[i]];
-                document.getElementById('total').innerHTML+=question.question+"<br>"+"<br>";
-                for(var j=0;j<question.options.length;j++)
-                {
-                    document.getElementById('total').innerHTML+=(j+1)+"."+question.options[j]+"<br>"+"<br>";
-                }
-            }
-        }
-        </script>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Тест на тему "JavaScript. Использование окон и фреймов."</h1>
+    <div id="questionOutput"></div>
+    <div id="option"></div>
+    <div id="total"></div>
+    <script>
+// вопросы
+var questions = [
+    {//1
+        question: 'Какой объект в JS используется для работы с окнами и фреймами?',
+        answers: 
+        {
+            a: 'window',
+            b: 'document',
+            c: 'navigator',
+            d:'location'
+        },
+        right: "a"
+    },
+    {//2
+        question:'Как открыть новое окно браузера с помощью JS?',
+        answers: 
+        {
+            a: 'window.open()',
+            b:'document.open()',
+            c:'navigator.open()',
+            d:'location.open()'
+        },
+        right: "a"
+    },
+    {//3
+        question:'Как закрыть текущее окно браузера с помощью JS?',
+        answers: 
+        {
+            a: 'window.close()',
+            b:'document.close()',
+            c:'navigator.close()',
+            d:'location.close()'
+        },
+        right: "a"
+    },
+      {//4
+        question:'Как получить доступ к фрейму на странице с помощью JS?',
+        answers: 
+        {
+            a: 'window.frame',
+            b:'document.frame',
+            c:'parent.frame',
+            d:'frames.frame'
+        },
+        right: "d"
+    },
+      {//5
+        question:'Как изменить размер окна браузера  с помощью JS?',
+        answers: 
+        {
+            a:'window.resizeTo()',
+            b:'document.resizeTo()',
+            c:'navigator.resizeTo()',
+            d:'location.resizeTo()'
+        },
+        right: "a"
+    },
+      {//6
+        question:'Как получить текущий URL адрес страницы с помощью JS?',
+        answers: 
+        {
+            a:'window.URL',
+            b:'document.URL',
+            c:'navigator.URL',
+            d:'location.URL'
+        },
+        right: "d"
+    },
+      {//7
+        question:'Как изменить URL адрес страницы с помощью JS?',
+        answers:
+         {
+            a:'window.location.href',
+            b:'document.location.href',
+            c:'navigator.location.href',
+            d:'location.href'
+        },
+        right: "d"
+    },
+      {//8
+        question:'Как открыть ссылку в новом окне браузера с помощью JS?',
+        answers: 
+        {
+            a:'window.openLink()',
+            b:'document.openLink()',
+            c:'navigator.openLink()',
+            d:'window.open("http://example.com","_blank")'
+        },
+        right: "d"
+    },
+      {//9
+        question:'Как получить ширину окна браузера с помощью JS?',
+        answers: 
+        {
+            a:'window.width',
+            b:'document.width',
+            c:'navigator.width',
+            d:'window.innerWidth'
+        },
+        right: "d"
+    },
+      {//10
+        question:'Как получить высоту окна браузера с помощью JS?',
+        answers: 
+        {
+            a: 'window.height',
+            b:'document.height',
+            c:'navigator.height',
+            d:'window.innerHeight'
+        },
+        right: "d"
+    },
+
+];
+
+//75% процентов вопросов
+var randomQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, Math.floor(questions.length * 0.75));
+
+// правильные ответы
+var rights = 0;
+
+// обработка ответов
+function handleAnswer(questionIndex, answer) 
+{
+    var question = randomQuestions[questionIndex];
+    if (question && question.right === answer) 
+    {
+        rights++;
+    }
+    if (questionIndex + 1 < randomQuestions.length) 
+    {
+        displayQuestion(questionIndex + 1);
+    } else 
+    {
+        displayTotal();
+    }
+}
+
+//вывод вопроса
+function displayQuestion(questionIndex) 
+{
+    var question = randomQuestions[questionIndex];
+    var output = document.getElementById("questionOutput");
+    output.innerHTML = question.question;
+
+    var option = document.getElementById("option");
+    option.innerHTML = "";
+    for (var key in question.answers) {
+        var choice = document.createElement("button");
+        choice.innerHTML = key + ". " + question.answers[key];
+        choice.addEventListener("click", function(event) 
+        {
+            handleAnswer(questionIndex, event.target.innerHTML[0].toLowerCase());
+        });
+        option.appendChild(choice);
+    }
+}
+
+// вывод
+function displayTotal() 
+{
+    var output = document.getElementById("total");
+    output.innerHTML = "Результаты теста: правильных ответов: " + rights + ", неправильных ответов: " + (randomQuestions.length - rights);
+}
+
+// для запуска теста
+displayQuestion(0);
+           </script>
 </body>
 </html>
