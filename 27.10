@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--1.	Класс Circle
+	Сделайте класс Circle, который будет описывать круг.
+	Передайте в параметр конструктора радиус круга. Запишите его в приватное свойство.
+	Сделайте метод, который будет возвращать площадь круга.
+	Сделайте метод, который будет возвращать длину окружности.-->
+    <p id="total"></p>
+    <script>
+    class Circle
+    {
+    constructor(radius)
+    {
+        this.radius=radius;
+    }
+    //площадь круга S = π × r2
+    getSquare() 
+    {
+      return Math.PI*this.radius*2;
+    }
+    //длина круга C = 2 π ⋅ 2*r
+    getLength() 
+    {
+      return 2*Math.PI*this.radius*2;
+    }
+    }
+    const radius=7;
+    var circle=new Circle(radius);
+
+    const square=circle.getSquare();
+    document.getElementById('total').innerHTML+="площадь круга с радиусом "+radius+" равна= "+ square.toFixed(2)+"<br>";
+
+    const length=circle.getLength();
+    document.getElementById('total').innerHTML+="длина окружности с радиусом "+radius+" равна= "+ length.toFixed(2);
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        2.	Класс Rectangle
+	Сделайте класс Rectangle, в котором в свойствах будут записаны ширина и высота прямоугольника.
+	В классе Rectangle сделайте метод getSquare, который будет возвращать площадь этого прямоугольника.
+	В классе Rectangle сделайте метод getPerimeter, который будет возвращать периметр этого прямоугольника.
+	В классе Rectangle сделайте метод getRatio, который будет возращать площадь, деленную на периметр.
+    -->
+    <p id="total"></p>
+   <script>
+    class Rectangle
+    {
+constructor(width, height)
+{
+    this.width=width;
+    this.height=height;
+}
+  //площадь прямоугольника= a*b
+getSquare()
+{
+return width*height;
+}
+  // P =(a+b)*2
+getPerimetr()
+{
+    return (width+height)*2;
+}
+getRatio()
+{
+    return (width*height)/((width+height)*2);
+}
+    }
+
+    const width=5;
+    const height=10;
+    var rectangle=new Rectangle(width,height);
+    const square=rectangle.getSquare();
+    document.getElementById('total').innerHTML+="площадь прямоугольника с шириной "+width+" и высотой "+height+" равна= "+ square.toFixed(2)+"<br>";
+
+    const hght=rectangle.getPerimetr();
+    document.getElementById('total').innerHTML+="площадь прямоугольника с шириной "+width+" и высотой "+height+" равна= "+ hght.toFixed(2)+"<br>";
+
+    const c=rectangle.getRatio();
+    document.getElementById('total').innerHTML+="площадь прямоугольника с шириной "+width+" и высотой "+height+" равна= "+ c.toFixed(2)+"<br>";
+   </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+3.	Класс Text
+	Сделайте класс Text, который будет выполнять некоторые манипуляции над текстом. Пусть текст передается параметром конструктора.
+	Сделайте метод, который вернет количество символов в тексте.
+	Сделайте метод, который вернет количество букв в тексте.
+	Сделайте метод, который вернет количество пробелов в тексте.
+	Сделайте метод, который вернет количество символов в тексте за вычетом пробелов.
+	Сделайте метод, который вернет массив предложений.
+    -->
+    <p id="total"></p>
+
+   <script>
+    class Text
+    {
+constructor(text)
+{
+    this.text=text;
+}
+  //вернет количество символов в тексте.
+getCharAmount()
+{
+return this.text.length;
+}
+  //вернет количество букв в тексте.
+getLetAmount()
+{
+   return this.text.replace(/^[a-zA-Z]/g,"").length-1;
+}
+//вернет количество пробелов в тексте.
+getSpaceAmount()
+{
+    return this.text.split(" ").length-1;
+}
+//количество символов в тексте за вычетом пробелов.
+getAmountWithoutSpace()
+{
+    return this.text.replace(/\s/g,"").length;
+}
+//вернет массив предложений.
+getArray()
+{
+    return this.text.split(/[.!?]/).filter((sentence)=>sentence.trim()!=="");
+}
+
+   }
+
+    var txt=new Text("hello my friend");
+    document.getElementById('total').innerHTML+='кол-во символов: '+txt.getCharAmount()+"<br>";
+    document.getElementById('total').innerHTML+='кол-во букв: '+txt.getLetAmount()+"<br>";
+    document.getElementById('total').innerHTML+='кол-во пробелов: '+txt.getSpaceAmount()+"<br>";
+    document.getElementById('total').innerHTML+='кол-во символов без пробелов: '+txt.getAmountWithoutSpace()+"<br>";
+    document.getElementById('total').innerHTML+='вернет массив предложений: '+txt.getArray()+"<br>";
+
+   </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!--4.	Класс Period
+	Сделайте класс Period, который будет находить разницу между двумя моментами времени. Пусть эти моменты передаются параметрами конструктора.
+	Сделайте метод, который вернет разницу между моментами в секундах.
+	Сделайте метод, который вернет разницу между моментами в минутах.
+    Сделайте метод, который вернет разницу между моментами в часах.
+	Сделайте метод, который вернет разницу между моментами в днях.
+--> 
+<p id="total"></p>
+<script>
+class Period
+{
+    constructor(moment1,moment2)
+    {
+    this.moment1=moment1;
+    this.moment2=moment2;
+    }
+//вернет разницу между моментами в секундах.
+getDifferenseSec()
+{
+const difSec=parseInt(this.moment1-this.moment2);
+return Math.abs(difSec/1000);
+}
+//вернет разницу между моментами в минутах.
+getDifferenseMin()
+{
+    const difMin=parseInt(this.moment1-this.moment2);
+return Math.abs(difMin/1000*60);
+}
+//вернет разницу между моментами в часах.
+getDifferenseHour()
+{
+    const difHour=parseInt(this.moment1-this.moment2);
+return Math.abs(difHour/1000*60*60);
+}
+//вернет разницу между моментами в днях.
+getDifferenseDay()
+{
+    const difDay=parseInt(this.moment1-this.moment2);
+return Math.abs(difDay/1000*60*60*24);
+}
+}
+const mom1=new Date(2023, 0, 1);
+const mom2=new Date(2023, 10, 27);
+const period=new Period(mom1,mom2);
+document.getElementById('total').innerHTML+="разницa между моментами в секундах: "+period.getDifferenseSec()+"сек"+"<br>";
+document.getElementById('total').innerHTML+="разницa между моментами в минутах: "+period.getDifferenseMin()+"мин"+"<br>";
+document.getElementById('total').innerHTML+="разницa между моментами в часах: "+period.getDifferenseHour()+"ч"+"<br>";
+document.getElementById('total').innerHTML+="разницa между моментами в днях: "+period.getDifferenseDay()+"сек"+"<br>";
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--5.	Класс Zate
+	Сделайте класс Zate, который будет представлять собой дату. Пусть конструктор этого класса параметрами принимает год, месяц и день даты.
+	Сделайте метод, который вернет год.
+	Сделайте метод, который вернет номер месяца.
+	Сделайте метод, который вернет день месяца.
+	Сделайте метод, который вернет номер дня недели.
+	Сделайте метод, который вернет название дня недели.
+	Сделайте метод, который вернет название месяца.
+-->
+<p id="total"></p>
+    <script>
+class Zate
+{
+    constructor(year, month,day)
+    {
+        this.year=year;
+        this.month=month;
+        this.day=day;
+    }
+    //вернет год.
+    getYear()
+    {
+return this.year;
+    }
+    //номер месяца.
+    getNumberMonth()
+    {
+        return this.month;
+    }
+    //день месяца.
+    getDayOfYear()
+    {
+        return this.day;
+    }
+    //номер дня недели.
+    getNumberDayOfWeek()
+    {
+        const date=new Date(this.year, this.month-1, this.day);
+        return date.getDay();
+    }
+    //название дня недели.
+    getName()
+    {
+        const arrayW=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+        return arrayW[this.getNumberDayOfWeek()];
+    }
+    //название месяца.
+    getMonth()
+    {
+        const arrayM=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+        return arrayM[this.month-1];
+    }
+}
+const zate=new Zate(2023, 10, 27);
+document.getElementById('total').innerHTML+="год: "+zate.getYear()+"<br>";
+document.getElementById('total').innerHTML+="номер месяца : "+zate.getNumberMonth()+"<br>";
+document.getElementById('total').innerHTML+="день месяца: "+zate.getDayOfYear()+"<br>";
+document.getElementById('total').innerHTML+="номер дня недели: "+zate.getNumberDayOfWeek()+"<br>";
+document.getElementById('total').innerHTML+="название дня недели: "+zate.getName()+"<br>";
+document.getElementById('total').innerHTML+="месяц: "+zate.getMonth()+"<br>";
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--6.	Класс ZateExt
+	Сделайте класс ZateExt, который будет наследовать от класса Zate  и расширять его некоторыми методами.
+	Сделайте метод, который будет прибавлять к дате заданное количество лет.
+	Сделайте метод, который будет отнимать от даты заданное количество лет.
+	Сделайте метод, который будет прибавлять к дате заданное количество месяцев.
+	Сделайте метод, который будет отнимать от даты заданное количество месяцев.
+	Сделайте метод, который будет прибавлять к дате заданное количество дней.
+	Сделайте метод, который будет отнимать от даты заданное количество дней.
+-->
+<p id="total"></p>
+<script>
+    class Zate
+{
+    constructor(year, month,day)
+    {
+        this.year=year;
+        this.month=month;
+        this.day=day;
+    }
+    //вернет год.
+    getYear()
+    {
+return this.year;
+    }
+    //номер месяца.
+    getNumberMonth()
+    {
+        return this.month;
+    }
+    //день месяца.
+    getDayOfYear()
+    {
+        return this.day;
+    }
+    //номер дня недели.
+    getNumberDayOfWeek()
+    {
+        const date=new Date(this.year, this.month-1, this.day);
+        return date.getDay();
+    }
+    //название дня недели.
+    getName()
+    {
+        const arrayW=['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+        return arrayW[this.getNumberDayOfWeek()];
+    }
+    //название месяца.
+    getMonth()
+    {
+        const arrayM=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+        return arrayM[this.month-1];
+    }
+}
+class ZateExt extends Zate
+{
+    //будет прибавлять к дате заданное количество лет
+    addYear(years)
+    {
+     this.year+=years;
+    }
+    //будет отнимать от даты заданное количество лет.
+    subYears(years)
+    {
+        this.year-=years;
+    }
+    //будет прибавлять к дате заданное количество месяцев.
+    addMonth(months)
+    {
+        const totalMonths=this.year*12+this.month-1+months;
+        this.year=Math.floor(totalMonths/12);
+        this.month=(totalMonths%12)+1;
+    }
+    //будет отнимать от даты заданное количество месяцев.
+    subMonth()
+    {
+        const totalMonths=this.year*12+this.month-1-months;
+        this.year=Math.floor(totalMonths/12);
+        this.month=(totalMonths%12)+1;
+    }
+    //будет прибавлять к дате заданное количество дней.
+    addDay()
+    {
+       const date=new Date(this.year,this.month-1,this.day);
+       date.setDate(date.getDate()+days);
+       this.year=date.getFullYear();
+       this.month=date.getMonth()+1;
+       this.dya=date.getDate();
+    }
+    //будет отнимать от даты заданное количество дней.
+   subDay()
+    {
+        const date=new Date(this.year,this.month-1,this.day);
+       date.setDate(date.getDate()-days);
+       this.year=date.getFullYear();
+       this.month=date.getMonth()+1;
+       this.dya=date.getDate();
+    }
+}
+const zateExt=new zateExt(2023,10,27);
+document.getElementById("total").innerHTML+="первоначальная дата: "+zateExt.getYear()+zateExt.getMonth()+zateExt.getDay();
+
+zateExt.addYear(2);
+document.getElementById("total").innerHTML+="прибавлено 2 года: "+zateExt.getYear()+zateExt.getMonth()+zateExt.getDay();
+
+zateExt.subYears(2);
+document.getElementById("total").innerHTML+="отнято 2 года: "+zateExt.getYear()+zateExt.getMonth()+zateExt.getDay();
+
+zateExt.addMonth(2);
+document.getElementById("total").innerHTML+="прибавлено 2 месяца: "+zateExt.getYear()+zateExt.getMonth()+zateExt.getDay();
+
+zateExt.subMonth(2);
+document.getElementById("total").innerHTML+="отнято 2 месяца: "+zateExt.getYear()+zateExt.getMonth()+zateExt.getDay();
+
+zateExt.addDay(2);
+document.getElementById("total").innerHTML+="прибавлено 2 дня: "+zateExt.getYear()+zateExt.getMonth()+zateExt.getMonth();
+
+zateExt.subDay(2);
+document.getElementById("total").innerHTML+="отнято 2 дня: "+zateExt.getYear()+zateExt.getMonth()+zateExt.getMonth();
+
+
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--7.	Класс Month
+	Сделайте класс Month, который будет представлять собой месяц. Пусть конструктор этого класса параметром принимает номер месяца.
+	Сделайте метод, который вернет номер месяца.
+	Сделайте метод, который вернет название месяца.
+	Сделайте метод, который вернет номер последнего дня месяца.
+	Сделайте метод, который вернет номер дня недели первого дня месяца.
+	Сделайте метод, который вернет номер дня недели последнего дня месяца.
+-->
+<p id="total"></p>
+<script>
+class Month
+{
+    constructor(numMonth)
+    {
+        this.numMonth=numMonth;
+    }
+    getNumMonth()
+    {
+     return this.numMonth;
+    }
+    getNameMonth()
+    {
+        const arrayM=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'];
+        return arrayM[this.numMonth-1];
+    }
+    getLastDayMonth()
+    {
+        const date=new Date(2023, this.numMonth,0);
+        return date.getDay();
+    }
+    getFirstDayWeek()
+    {
+        const date=new Date(2023, this.numMonth-1,1);
+        return date.getDay();
+    }
+    getLastDayWeek()
+    {
+        const date=new Date(2023, this.numMonth,0);
+        return date.getDay();
+    }
+}
+const january=new Month(1);
+document.getElementById('total').innerHTML+="номер месяца: "+january.getNumMonth()+"<br>";
+document.getElementById('total').innerHTML+="название месяца: "+january.getNameMonth()+"<br>";
+document.getElementById('total').innerHTML+="номер последнего дня месяца: "+january.getLastDayMonth()+"<br>";
+document.getElementById('total').innerHTML+="номер дня недели первого дня месяца: "+january.getFirstDayWeek()+"<br>";
+document.getElementById('total').innerHTML+="номер дня недели последнего дня месяца: "+january.getLastDayWeek()+"<br>";
+</script>
+</body>
+</html>
