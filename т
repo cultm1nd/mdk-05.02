@@ -1,0 +1,28 @@
+K2xmi version="1. 0" encoding="windows-1251"5
+<!--имя файла: fale 1. xml-->
+<FILE 17
+«STUDENTS
+<FAMILY>ИВаноВ</FAMILY
+«NAME Сергей </NAME
+CYEARS1993c/YEARS
+«GROUP>ИФ 874/GROUPS
+</STUDENTS
+<STUDENT>
+<FAMILY>ПЕтРОВа</FAMILY>I
+«NAMES Галина < /NAMES
+<YEAR»1992</YEARS
+«GROUPSId 87</GROUPS
+</STUDENT>
+«STUDENTS
+<FAMILY>Семенов</FAMILY
+«мамЕ>валерий </МАМЕ>
+«YEARS1993 </YEARS
+ZGROUPS$ 88</GROUPS
+</STUDENT>
+STUDENTS
+(FAMILY Павлова</FAMILY>
+спАмЕ>ириНа </NAMES
+«YEAR>1994 </YEAR>
+«GROUP>ИФ 89</GROUPS
+</STUDENT>
+</FILE 1>
