@@ -1,0 +1,90 @@
+@media screen and (max-width: 1024px) {
+ 
+   .header {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 20px;
+    }
+
+
+   .content {
+        margin-top: 100px;
+    }
+
+   .content #img1,
+   .content #img2 {
+        width: 100%;
+    }
+
+   .but_con {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    /* About section adjustments */
+   .about {
+        grid-template-rows: auto auto;
+        grid-gap: 20px;
+    }
+
+   .white {
+        grid-template-rows: auto auto auto;
+        grid-gap: 20px;
+    }
+
+   .white.ims,
+   .ims {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+   .white.food {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+    }
+
+ 
+   .slider {
+        background-size: cover;
+    }
+
+   .sp-carousel {
+        flex-wrap: wrap;
+    }
+
+   .SP-slider {
+        flex-basis: 100%;
+        margin: 10px auto;
+    }
+
+
+   .two {
+        grid-template-columns: 1fr;
+    }
+
+   .red,
+   .orange {
+        grid-template-rows: auto auto auto;
+        grid-gap: 20px;
+    }
+
+
+   .sh {
+        grid-template-columns: 1fr;
+    }
+
+
+   .footer {
+        grid-template-rows: auto auto auto auto;
+        grid-gap: 20px;
+    }
+
+   .fot1 {
+        grid-template-rows: auto auto auto auto;
+        grid-gap: 20px;
+    }
+
+   .fot2 {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
