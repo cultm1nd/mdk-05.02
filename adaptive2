@@ -1,0 +1,79 @@
+/* Existing CSS */
+
+/* Add this to the existing CSS file */
+
+/* Responsive adjustments for screens smaller than 1024px */
+@media screen and (max-width: 1024px) {
+
+    /* Header adjustments */
+   .header {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 20px;
+    }
+
+    /* Content adjustments */
+   .content {
+        margin-top: 100px; /* Reduce margin for better fit */
+    }
+
+   .content #img1,
+   .content #img2 {
+        width: 100%; /* Make images responsive */
+    }
+
+   .but_con {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust button container */
+    }
+
+    /* About section adjustments */
+   .about {
+        grid-template-rows: auto auto;
+    }
+
+    /* White section adjustments */
+   .white {
+        grid-template-rows: auto auto auto;
+    }
+
+   .white.ims {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust image blocks */
+    }
+
+   .white.food {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust food items */
+    }
+
+    /* Slider adjustments */
+   .sp-carousel {
+        flex-wrap: wrap; /* Allow items to wrap if necessary */
+    }
+
+   .SP-slider {
+        flex-basis: 100%; /* Ensure sliders take full width */
+    }
+
+    /* Two section adjustments */
+   .two {
+        grid-template-columns: 1fr; /* Stack sections vertically on small screens */
+    }
+
+    /* Sh section adjustments */
+   .sh {
+        grid-template-columns: 1fr; /* Stack sections vertically on small screens */
+    }
+
+    /* Footer adjustments */
+   .footer {
+        grid-template-rows: auto auto auto auto auto;
+    }
+
+   .fot1 {
+        grid-template-rows: auto auto auto auto;
+    }
+
+   .fot2 {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust footer links */
+    }
+}
+
+
